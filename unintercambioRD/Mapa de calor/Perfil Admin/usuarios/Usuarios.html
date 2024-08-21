@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>SolicitudesEstudiante</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="stylesheet" href="../style.css"> <!-- ESTE ES EL CSS DEL MENU -->
+  <link rel="stylesheet" href="Usuarios.css">
+  <script src="/logout.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li id="brand-container">
+          <div class="brand-container">
+            <div class="column" id="logo">
+              <img src="../assets/logo 2 - copia 1.svg" alt="Logo Un Intercambio" id="logoIntercambio">
+            </div>
+
+          </div>
+        </li>
+        <li><a href="../usuarios/Usuarios.html">Usuarios</a>
+        </li>
+        <li><a href="../RegistroEstudiantes/RegistrosEstudiante.html">Registros Estudiantes</a>
+        </li>
+        <li><a href="../Convocatorias/Convocatorias.html">Convocatorias</a>
+        </li>
+        <li><a href="../Universidad/Universidad.html">Universidad</a>
+        </li>
+        <li><a class="button-container">
+            <button id="cerrar-sesion" onclick="logout()">Cerrar sesion</button> <!--BOTON PARA CERRAR SESION-->
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!------------------------------------------TABLA USUARIOS-------------------------------->
+
+  <div class="container-pt-5">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Usuarios</h1>
+      </div>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Correo Electrónico</th>
+              <th scope="col">Contraseña</th>
+            </tr>
+          </thead>
+          <tbody id='usuarioBody'></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="Usuarios/usuarios.js"></script> <!-- Añade datos -->
+
+
+
+  <div class="button-container">
+    <button class="button add"  onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Añadir</button>
+    <button class="button edit" onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Editar</button>
+    <button class="button delete" onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Eliminar</button>
+  </div>
+
+  <!------------------------------------------TABLA OPERADORES-------------------------------->
+
+  <div class="container-pt-5">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Operadores</h1>
+      </div>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Correo Electrónico</th>
+              <th scope="col">Contraseña</th>
+            </tr>
+          </thead>
+          <tbody id='operadorBody'></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="Usuarios.js"></script> <!-- Añade datos -->
+
+
+
+
+  <div class="button-container">
+    <button class="button add"  onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Añadir</button>
+    <button class="button edit" onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Editar</button>
+    <button class="button delete" onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Eliminar</button>
+  </div>
+
+
+
+
+
+
+
+
+
+  <footer>
+    <div class="barra"></div> <!-- Barra encima del texto -->
+    <p>Todas las marcas comerciales, logotipos y nombres de servicio que aparecen en esta página son propiedad de UN
+      intercambio o de terceros que han autorizado su uso. Queda prohibido el uso no autorizado de cualquier marca
+      comercial sin el consentimiento previo por escrito de UN intercambio o del titular de la marca.r</p>
+  </footer>
+
+
+</html>

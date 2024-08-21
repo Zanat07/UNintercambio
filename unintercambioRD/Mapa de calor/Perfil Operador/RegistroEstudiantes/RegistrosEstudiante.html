@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>RegistroEstudiante</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="stylesheet" href="../style.css"> <!-- ESTE ES EL CSS DEL MENU -->
+  <link rel='stylesheet' type='text/css' media='screen' href='RegistrosEstudiantes.css'><!-- ESTE ES EL CSS DEL FORMULARIO -->
+  <link rel="stylesheet" href="TablaEstudiantes.css"><!-- ESTE ES EL CSS DE La TABLA -->
+  <script src="/logout.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li id="brand-container">
+          <div class="brand-container">
+            <div class="column" id="logo">
+              <img src="../assets/logo 2 - copia 1.svg" alt="Logo Un Intercambio" id="logoIntercambio">
+            </div>
+
+          </div>
+        </li>
+        <li><a href="../RegistroEstudiantes/RegistrosEstudiante.html">Registros Estudiantes</a>
+        </li>
+        <li><a href="../Convocatorias/Convocatorias.html">Convocatorias</a>
+        </li>
+        <li><a href="../Universidad/Universidad.html">Universidad</a>
+        </li>
+        <li><a class="button-container">
+            <button id="cerrar-sesion" onclick="logout()">Cerrar sesion</button> <!--BOTON PARA CERRAR SESION-->
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+
+<!-------------------------------------"DESDE ACA LA TABLA DE REGISTRADOS"---------------------------------->
+<div class="container-pt-5">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1>Estudiantes</h1>
+    </div>
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">CEDULA</th>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">EDAD</th>
+            <th scope="col">TELEFONO</th>
+            <th scope="col">CORREO</th>
+            <th scope="col">PAPA</th>
+            <th scope="col">SEMESTRE</th>
+            <th scope="col">PROGRAMA</th>
+            <th scope="col">PASAPORTE</th>
+          </tr>
+        </thead>
+        <tbody id='cuerpo'>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+  <script>
+    const tabla= document.querySelector('#cuerpo');
+    const opciones={
+      method: 'POST'
+    }
+
+    fetch('papas.php',opciones)
+      .then(respuesta => respuesta.json())
+      .then(resultado =>{
+
+        resultado.forEach(elemento => {
+
+          tabla.innerHTML +=  `
+                            <tr>
+                              <th scope="row">${elemento.est_Cedula}</th>
+                              <td>${elemento.est_Nombre}</td>
+                              <td>${elemento.est_Edad}</td>
+                              <td>${elemento.est_Telefono}</td>
+                              <td>${elemento.est_Correo}</td>
+                              <td>${elemento.est_PAPA}</td>
+                              <td>${elemento.est_Semestre}</td>
+                              <td>${elemento.est_pro_SNIES}</td>
+                                 <td>${elemento.est_Pasaporte}</td>
+                            </tr>
+                  `
+        });
+      });
+  </script>
+
+
+<!-------------------------------------"DESDE ACA LA TABLA DE SOLICITUD"---------------------------------->
+
+
+<div class="container-pt-5">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1>Radicados</h1>
+    </div>
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Número de Solicitud</th>
+            <th scope="col">Estudiante (Cédula)</th>
+            <th scope="col">Fecha Radicado</th>
+          </tr>
+        </thead>
+        <tbody id='solicitudBody'></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+  <script>
+    const tablas= document.querySelector('#solicitudBody');
+    const opcioness={
+      method: 'POST'
+    }
+
+    fetch('radics.php',opcioness)
+      .then(respuesta => respuesta.json())
+      .then(resultado =>{
+
+        resultado.forEach(elemento => {
+
+          tablas.innerHTML +=  `
+                            <tr>
+
+                              <th scope="row">${elemento.sol_NumeroSolicitud}</th>
+                              <td>${elemento.sol_est_Cedula}</td>
+                              <td>${elemento.sol_Fecha}</td>
+
+                            </tr>
+                  `
+        });
+      });
+  </script>
+
+
+
+
+</body>
+
+<footer>
+  <div class="barra"></div> <!-- Barra encima del texto -->
+  <p>Todas las marcas comerciales, logotipos y nombres de servicio que aparecen en esta página son propiedad de UN
+    intercambio o de terceros que han autorizado su uso. Queda prohibido el uso no autorizado de cualquier marca
+    comercial sin el consentimiento previo por escrito de UN intercambio o del titular de la marca.r</p>
+</footer>
+
+</html>

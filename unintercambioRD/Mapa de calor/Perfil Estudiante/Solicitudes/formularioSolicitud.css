@@ -1,0 +1,111 @@
+div.form-container {
+    background-color: rgba(165, 215, 254, 0.356);
+    border-radius: 10px;
+    border: 1px solid rgba(3, 96, 168, 0.603);
+    width: 70%;
+    min-width: fit-content;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+#student-form, .result-container {
+    margin: 42px;
+    margin-bottom: 20px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#student-form input, #student-form textarea{
+    border-radius: 20px;
+    text-indent: 10px;
+    font-size: 16px;
+    height: 42px;
+    width: 100%;
+    min-width: 200px;
+    overflow: hidden;
+    border: 2px solid rgba(0, 0, 0, 0.06);
+}
+
+#student-form input:focus-visible{
+    outline: 1px solid rgba(3, 96, 168, 0.603);
+}
+
+.custom-text-input{
+    display: inline-block;
+    position: relative;
+    font-size: 16px;
+    width: 100%;
+    height: 42px;
+}
+
+.custom-text-input.submit {
+    display: inline-block;
+    position: relative;
+    font-size: 16px;
+    width: 30%;
+    height: 42px;
+}
+
+.custom-text-input input, .custom-text-input textarea {
+    width: 250px;
+    height: 32px;
+    border-radius: 5px;
+    text-indent: 32px;
+}
+
+.custom-text-input .edit-container {
+    display: inline-block;
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    top: 5px;
+    left: auto;
+    right: 10px;
+}
+
+input[type="submit"] {
+    background-color: rgba(113, 133, 152, 1);
+    color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.info-field{
+    margin-top: 30px;
+}
+
+
+label{
+    font-family: arial, sans-serif;
+}
+
+textarea{
+    margin-top: 10px;
+    min-height: 150px;
+}
+
+footer {
+    color: black;
+    text-align: center;
+    padding: 20px 0;
+    /*si la pantalla es muy grande se puede utilizar 
+    position: abolute;
+    bottom: 0;
+    */
+}
+
+.barra {
+    background-color: gray;
+    height: 1px;
+    margin-bottom: 10px;
+}
+
+p {
+    text-align: center;
+    font-family: arial, sans-serif;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='formularioSolicitud.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <div class="form-container">
+        <form id="student-form"> <!-- IMPORTANTE PONER EL ACTION -->
+            <div class="custom-text-input">
+                <input type="text" id="identification" placeholder="Numero de solicitud" required>
+                <span class="edit-container">
+                    <img class="manImg" src="../../assets/editIcon.svg"></img>
+                </span>
+            </div><br><br>
+
+            <div class="custom-text-input submit">
+                <input type="submit" value="Registrarse">
+                <span class="edit-container">
+                    <img class="manImg" src="../../assets/register.svg"></img>
+                </span>
+            </div><br><br>
+
+            <div class="custom-text-input info-field">
+                <label for="state">Estado</label>
+                <textarea type="text" id="identification" disabled></textarea>
+            </div><br><br>
+
+            <div class="custom-text-input info-field">
+                <label for="comments">Comentarios</label>
+                <textarea type="text" id="comments" disabled></textarea>
+            </div><br><br>
+        </form>
+    </div>
+    
+</body>
+
+</html>

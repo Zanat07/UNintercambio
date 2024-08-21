@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>SolicitudesEstudiante</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="stylesheet" href="../style.css"> <!-- ESTE ES EL CSS DEL MENU -->
+  <link rel="stylesheet" href="Universidad.css">
+  <script src="/logout.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li id="brand-container">
+          <div class="brand-container">
+            <div class="column" id="logo">
+              <img src="../assets/logo 2 - copia 1.svg" alt="Logo Un Intercambio" id="logoIntercambio">
+            </div>
+
+          </div>
+        </li>
+        <li><a href="../RegistroEstudiantes/RegistrosEstudiante.html">Registros Estudiantes</a>
+        </li>
+        <li><a href="../Convocatorias/Convocatorias.html">Convocatorias</a>
+        </li>
+        <li><a href="../Universidad/Universidad.html">Universidad</a>
+        </li>
+        <li><a class="button-container">
+            <button id="cerrar-sesion" onclick="logout()">Cerrar sesion</button> <!--BOTON PARA CERRAR SESION-->
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!------------------------------------------TABLA FACULTAD-------------------------------->
+
+
+  <div class="container-pt-5">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Facultad</h1>
+      </div>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Decano</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Direccion</th>
+            </tr>
+          </thead>
+          <tbody id='facultadBody'></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tabla= document.querySelector('#facultadBody');
+    const opciones={
+      method: 'POST'
+    }
+
+    fetch('universidata.php',opciones)
+      .then(respuesta => respuesta.json())
+      .then(resultado =>{
+
+        resultado.forEach(elemento => {
+
+          tabla.innerHTML +=  `
+                            <tr>
+                              <th scope="row">${elemento.fac_ID}</th>
+                              <td>${elemento.fac_Nombre}</td>
+                              <td>${elemento.fac_Decano}</td>
+                              <td>${elemento.fac_telefono}</td>
+                              <td>${elemento.fac_direccion}</td>
+                            </tr>
+                  `
+        });
+      });
+  </script>
+
+
+
+  <!------------------------------------------TABLA DEPARTAMENTO-------------------------------->
+
+  <div class="container-pt-5">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Departamento</h1>
+      </div>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Director</th>
+              <th scope="col">Secretaria</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Dirección</th>
+              <th scope="col">Facultad</th>
+            </tr>
+          </thead>
+          <tbody id='departamentoBody'></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tablae= document.querySelector('#departamentoBody');
+    const opcion={
+      method: 'POST'
+    }
+
+    fetch('departadata.php',opcion)
+      .then(respuesta => respuesta.json())
+      .then(resultado =>{
+
+        resultado.forEach(elemento => {
+
+          tablae.innerHTML +=  `
+                            <tr>
+                              <th scope="row">${elemento.dep_ID}</th>
+                              <td>${elemento.dep_Nombre}</td>
+                              <td>${elemento.dep_Director}</td>
+                              <td>${elemento.dep_Secretaria}</td>
+                              <td>${elemento.dep_telefono}</td>
+                              <td>${elemento.dep_direccion}</td>
+                              <td>${elemento.dep_fac_ID}</td>
+                            </tr>
+                  `
+        });
+      });
+  </script>
+
+
+
+  <!------------------------------------------TABLA PROGRAMA-------------------------------->
+
+  <!-- Asegúrate de tener la estructura del documento HTML ya existente con las otras tablas -->
+  <!-- Agrega este bloque para la tabla de "Programa" -->
+
+  <div class="container-pt-5">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Programa</h1>
+      </div>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Código SNIES</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Créditos</th>
+              <th scope="col">Departamento</th>
+            </tr>
+          </thead>
+          <tbody id='programaBody'></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tablas= document.querySelector('#programaBody');
+    const opcions={
+      method: 'POST'
+    }
+
+    fetch('programata.php',opcions)
+      .then(respuesta => respuesta.json())
+      .then(resultado =>{
+
+        resultado.forEach(elemento => {
+
+          tablas.innerHTML +=  `
+                            <tr>
+                              <th scope="row">${elemento.pro_SNIES}</th>
+                              <td>${elemento.pro_Nombre}</td>
+                              <td>${elemento.pro_CreditosTotales}</td>
+                              <td>${elemento.pro_dep_ID}</td>
+                            </tr>
+                  `
+        });
+      });
+  </script>
+
+
+
+
+
+
+
+  <footer>
+    <div class="barra"></div> <!-- Barra encima del texto -->
+    <p>Todas las marcas comerciales, logotipos y nombres de servicio que aparecen en esta página son propiedad de UN
+      intercambio o de terceros que han autorizado su uso. Queda prohibido el uso no autorizado de cualquier marca
+      comercial sin el consentimiento previo por escrito de UN intercambio o del titular de la marca.r</p>
+  </footer>
+
+
+</html>

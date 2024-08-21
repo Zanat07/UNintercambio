@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>SolicitudesEstudiante</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="stylesheet" href="../style.css"> <!-- ESTE ES EL CSS DEL MENU -->
+  <link rel="stylesheet" href="formularioSolicitud.css">
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li id="brand-container">
+          <div class="brand-container">
+            <div class="column" id="logo">
+              <img src="../assets/logo 2 - copia 1.svg" alt="Logo Un Intercambio" id="logoIntercambio">
+            </div>
+
+          </div>
+        </li>
+        <li><a href="../RegistroEstudiante/RegistroEstudiante.php">Registro Estudiante</a>
+        </li>
+        <li><a href="../HeatMap/MAPA.html">Heat Map</a>
+        </li>
+        <li><a href="../HeatMap/HeatMap.html">Estadisticas</a>
+        </li>
+        <li><a href="../Solicitudes/SolicitudesEstudiante.html">Solicitudes</a>
+        </li>
+        <li><a class="button-container">
+            <button id="cerrar-sesion">Cerrar sesion</button> <!--BOTON PARA CERRAR SESION-->
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="form-container">
+    <form id="student-form"> <!-- ZONA DE SOLICITUDES-->
+      <div class="custom-text-input">
+        <input type="text" id="NumeroSolicitud" placeholder="Numero de solicitud" required> <!-- INPUT "NumeroSolicitud"-->
+        <span class="edit-container">
+          <img class="manImg" src="../assets/editIcon.svg"></img>
+        </span>
+      </div><br><br>
+
+      <div class="custom-text-input submit">
+        <input type="submit" value="Registrarse">  <!--BOTON PARA BUSCAR-->
+        <span class="edit-container">
+          <img class="manImg" src="../assets/register.svg"></img>
+        </span>
+      </div><br><br>
+
+      <div class="custom-text-input info-field">
+        <label for="state">Estado</label>
+        <textarea type="text" id="Estado" disabled></textarea> <!-- OUTPUT "Estado"-->
+      </div><br><br>
+
+      <div class="custom-text-input info-field">
+        <label for="comments">Comentarios</label>
+        <textarea type="text" id="Comentarios" disabled></textarea> <!-- OUTPUT "Comentarios"-->
+      </div><br><br>
+    </form>
+  </div>
+
+
+</body>
+
+<footer>
+  <div class="barra"></div> <!-- Barra encima del texto -->
+  <p>Todas las marcas comerciales, logotipos y nombres de servicio que aparecen en esta página son propiedad de UN
+    intercambio o de terceros que han autorizado su uso. Queda prohibido el uso no autorizado de cualquier marca
+    comercial sin el consentimiento previo por escrito de UN intercambio o del titular de la marca.r</p>
+</footer>
+
+
+</html>

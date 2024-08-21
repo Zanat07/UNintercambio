@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>SolicitudesEstudiante</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="stylesheet" href="../style.css"> <!-- ESTE ES EL CSS DEL MENU -->
+  <link rel="stylesheet" href="Convocatorias.css">
+  <script src="/logout.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li id="brand-container">
+          <div class="brand-container">
+            <div class="column" id="logo">
+              <img src="../assets/logo 2 - copia 1.svg" alt="Logo Un Intercambio" id="logoIntercambio">
+            </div>
+
+          </div>
+        </li>
+        <li><a href="../usuarios/Usuarios.html">Usuarios</a>
+        </li>
+        <li><a href="../RegistroEstudiantes/RegistrosEstudiante.html">Registros Estudiantes</a>
+        </li>
+        <li><a href="../Convocatorias/Convocatorias.html">Convocatorias</a>
+        </li>
+        <li><a href="../Universidad/Universidad.html">Universidad</a>
+        </li>
+        <li><a class="button-container">
+            <button id="cerrar-sesion" onclick="logout()">Cerrar sesion</button> <!--BOTON PARA CERRAR SESION-->
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!------------------------------------------TABLA CONVOCATORIA-------------------------------->
+
+  <div class="container-pt-5">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Convocatorias</h1>
+      </div>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Código</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Inicio</th>
+              <th scope="col">Finalización</th>
+
+
+            </tr>
+          </thead>
+          <tbody id='convocatoriaBody'></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tablas= document.querySelector('#convocatoriaBody');
+    const opcionex={
+      method: 'POST'
+    }
+
+    fetch('convocatorias.php',opcionex)
+      .then(respuesta => respuesta.json())
+      .then(resultado =>{
+
+        resultado.forEach(elemento => {
+
+          tablas.innerHTML +=  `
+                            <tr>
+                              <th scope="row">${elemento.con_CodigoConvocatoria}</th>
+                              <td>${elemento.con_Tipo}</td>
+                              <td>${elemento.con_FechaInicio}</td>
+                              <td>${elemento.con_FechaFinalización}</td>
+                            </tr>
+                  `
+        });
+      });
+  </script>
+
+  <div class="button-container">
+    <button class="button add"  onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Añadir</button>
+    <button class="button edit" onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Editar</button>
+    <button class="button delete" onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Eliminar</button>
+  </div>
+
+
+
+
+
+  <!------------------------------------------TABLA UNIVERSIDADES-------------------------------->
+
+  <div class="container-pt-5">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Universidades</h1>
+      </div>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Ciudad</th>
+              <th scope="col">País</th>
+              <th scope="col">Codigo Convocatoria</th>
+            </tr>
+          </thead>
+          <tbody id='universidadBody'></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tabla= document.querySelector('#universidadBody');
+    const opciones={
+      method: 'POST'
+    }
+
+    fetch('multiversidades.php',opciones)
+      .then(respuesta => respuesta.json())
+      .then(resultado =>{
+
+        resultado.forEach(elemento => {
+
+          tabla.innerHTML +=  `
+                            <tr>
+                              <th scope="row">${elemento.uni_Nombre}</th>
+                              <td>${elemento.uni_ciudad}</td>
+                              <td>${elemento.uni_pais}</td>
+                              <td>${elemento.uni_con_CodigoConvocatoria}</td>
+                            </tr>
+                  `
+        });
+      });
+  </script>
+
+  <div class="button-container">
+    <button class="button add"  onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Añadir</button>
+    <button class="button edit" onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Editar</button>
+    <button class="button delete" onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Eliminar</button>
+  </div>
+
+
+
+  <!------------------------------------------TABLA TIPO DE MOVILIDAD-------------------------------->
+
+  <div class="container-pt-5">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Movilidad</h1>
+      </div>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Modalidad</th>
+              <th scope="col">Duración</th>
+            </tr>
+          </thead>
+          <tbody id='movilidadBody'></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="Convocatorias/Movilidad.js"></script> <!-- Añade datos -->
+
+  <div class="button-container">
+    <button class="button add"  onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Añadir</button>
+    <button class="button edit" onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Editar</button>
+    <button class="button delete" onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Eliminar</button>
+  </div>
+
+
+
+  <!------------------------------------------TABLA TIPO DE REQUISITOS-------------------------------->
+
+  <div class="container-pt-5">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Requisitos</h1>
+      </div>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre</th>
+            </tr>
+          </thead>
+          <tbody id='requisitoBody'></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="Convocatorias.js"></script> <!-- Añade datos -->
+
+
+  <div class="button-container">
+    <button class="button add"  onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Añadir</button>
+    <button class="button edit" onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Editar</button>
+    <button class="button delete" onclick="window.location.href='jetbrains://idea/navigate/reference?project=Mapa de calor&path=ddf18e69-5061-4b3f-af95-29719054f8a0/console.sql'">Eliminar</button>
+  </div>
+
+
+
+  <footer>
+    <div class="barra"></div> <!-- Barra encima del texto -->
+    <p>Todas las marcas comerciales, logotipos y nombres de servicio que aparecen en esta página son propiedad de UN
+      intercambio o de terceros que han autorizado su uso. Queda prohibido el uso no autorizado de cualquier marca
+      comercial sin el consentimiento previo por escrito de UN intercambio o del titular de la marca.r</p>
+  </footer>
+
+</body>
+</html>

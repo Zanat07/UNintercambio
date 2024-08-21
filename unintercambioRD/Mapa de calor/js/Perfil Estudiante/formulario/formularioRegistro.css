@@ -1,0 +1,131 @@
+div.form-container {
+    background-color: rgba(137, 196, 128, 0.356);
+    border-radius: 10px;
+    border: 1px solid rgba(137, 196, 128, 0.603);
+    width: 70%;
+    padding-right: 42px;
+}
+
+#form-title {
+    margin-left: 42px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: arial, sans-serif;
+}
+
+#student-form {
+    margin-left: 42px;
+    margin-top: 20px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+    margin-right: 10px;
+}
+
+#student-form input {
+    border-radius: 20px;
+    text-indent: 10px;
+    font-size: 16px;
+    height: 42px;
+    width: 100%;
+    min-width: 200px;
+    overflow: hidden;
+    border: 2px solid rgba(0, 0, 0, 0.06);
+}
+
+#student-form input:focus-visible {
+    outline: 1px solid rgba(137, 196, 128, 0.603);
+}
+
+.custom-text-input{
+    display: inline-block;
+    position: relative;
+    font-size: 16px;
+    width: 100%;
+    height: 42px;
+}
+
+.custom-text-input input{
+    width: 250px;
+    height: 32px;
+    border-radius: 5px;
+    text-indent: 32px;
+    
+}
+
+.custom-text-input .edit-container {
+    display: inline-block;
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    top: 5px;
+    left: auto;
+    right: 10px;
+}
+
+.custom-file-input{
+    display: inline-block;
+    position: relative;
+    font-size: 16px;
+    width: 100%;
+    height: 42px;
+} 
+
+input#date{
+    text-indent: 5px;
+}
+
+input#grad-cert, input#mot-lett{
+    display: none;
+}
+
+.custom-file-upload{
+    cursor: pointer;
+}
+
+.custom-file-input {
+    border: 1px solid rgba(137, 196, 128, 0.603);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: white;
+    color: rgba(128, 128, 128, 0.719);
+    font-family: arial, sans-serif;
+} 
+
+
+.upload-container{
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    top: 4px;
+    left: auto;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-container img{
+    display: inline-block;
+    opacity: 50%;
+}
+
+input[type="submit"]{
+    background-color: rgba(113, 133, 152, 1);
+    color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}

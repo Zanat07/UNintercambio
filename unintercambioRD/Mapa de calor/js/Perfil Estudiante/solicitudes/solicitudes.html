@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Registro estudiante</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='solicitudes.css'>
+</head>
+
+<body>
+    <!-- Si hubiera servidor y politicas CORS esto es valido -->
+    <!-- <div id="navbarComponent"></div>
+
+    <script>
+        const navbarComponent = document.getElementById('navbarComponent');
+        const componenteURL = '../navbar/navbar.html';
+
+        fetch(componenteURL)
+            .then(response => response.text())
+            .then(html => {
+                navbarComponent.innerHTML = html;
+            })
+            .catch(error => console.error(error));
+    </script> -->
+    <iframe id="navbar" src="../navbar/navbar.html" frameborder="0" width="100%"></iframe>
+    <div id="form">
+        <iframe src="../formulario/formularioSolicitud.html" frameborder="0" width="100%" height="700px"></iframe>
+    </div>
+    <footer>
+        <iframe src="../footer/footer.html" frameborder="0" width="100%" height="612px"></iframe>
+    </footer>
+</body>
+
+</html>

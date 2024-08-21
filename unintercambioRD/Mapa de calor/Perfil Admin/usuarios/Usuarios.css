@@ -1,0 +1,145 @@
+footer {
+    color: black;
+    text-align: center;
+    padding: 20px 0;
+    /*si la pantalla es muy grande se puede utilizar 
+    position: abolute;
+    bottom: 0;
+    */
+}
+
+.barra {
+    background-color: gray;
+    height: 1px;
+    margin-bottom: 10px;
+}
+
+p {
+    text-align: center;
+    font-family: arial, sans-serif;
+}
+
+
+
+
+/* Estilo para la tabla */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para las celdas del encabezado */
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Estilo para las celdas de datos */
+td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+/* Estilo para las filas pares del cuerpo */
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilo para el título */
+h1 {
+    color: black;
+}
+
+/* Estilo para el contenedor del formulario */
+.container-pt-5 {
+    padding-top: 50px;
+}
+
+/* Estilo para el cuerpo del formulario */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Estilo para cada columna del formulario */
+.col-md-12 {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+
+/* Estilo para el campo de selección en el formulario */
+select {
+    border: 1px solid rgba(150, 150, 150, 0.603);
+    border-radius: 20px;
+    padding: 12px;
+    display: flex;
+    background-color: white;
+    color: rgba(94, 89, 89, 0.719);
+    font-family: arial, sans-serif;
+    width: 100%;
+    margin-bottom: 20px;
+    /* Espaciado entre campos */
+}
+
+/* Estilo para el contenedor de opciones en el formulario */
+.Opciones,
+.Fechas {
+    font-family: "Tu Tipo de Letra", Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: -15px;
+    /* Ajusta según sea necesario */
+}
+
+/* Estilo para las opciones del campo de selección en el formulario */
+option {
+    background-color: #f2f2f2;
+    padding: 8px;
+    font-size: 14px;
+}
+
+
+
+
+
+
+/*ESTILOS DE LOS BOTONES AÑADIR, EDITAR Y ELIMINAR*/
+.button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.button.add {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.button.edit {
+    background-color: #2196f3;
+    color: #fff;
+}
+
+.button.delete {
+    background-color: #f44336;
+    color: #fff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+}

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="navbar.css">
+    <!-- ESTE ES EL CSS DEL MENU -->
+    <link rel="stylesheet" href="HeatMap.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNintercambio</title>
+    <!-- Enlace de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .search-container {
+            margin: 20px;
+            position: relative;
+        }
+
+        .search-icon {
+            cursor: pointer;
+            font-size: 1.5em;
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+
+        .search-bar {
+            padding: 10px 10px 10px 35px;
+            /* Ajusta el padding para dejar espacio al ícono */
+            font-size: 1em;
+            width: 0;
+            max-width: 600px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: width 0.3s ease-in-out;
+            opacity: 0;
+        }
+
+        .search-container:hover .search-bar {
+            width: 100%;
+            opacity: 1;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            padding: 20px;
+            max-width: 1200px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            cursor: pointer;
+        }
+
+        .card-content {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 1.2em;
+            margin: 0 0 10px 0;
+        }
+
+        .card-description {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .card img {
+            width: 25 px;
+            height: 20px;
+        }
+
+        .card-links {
+            margin-top: 10px;
+        }
+
+        .card-links a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        .filters {
+            margin-top: 10px;
+        }
+
+        .filter {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .filter .remove-filter {
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .flag {
+            width: 30px;
+            height: auto;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        /* Estilos para el pop-up */
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .popup .close-popup {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li id="brand-container">
+                    <div class="brand-container">
+                        <div class="column" id="logo">
+                            <img src="../UN intercambio logo.png" alt="Logo Un Intercambio" id="logoIntercambio">
+                        </div>
+                    </div>
+                </li>
+                <li><a href="Convenios.html">Convenios</a></li>
+                <li><a href="HeatMap/MAPA.html">Heat Map</a></li>
+                <li><a href="HeatMap/HeatMap.html">Estadisticas</a></li>
+                <br>
+                <br>
+                <script>
+                    function logout() {
+                        // Redirige al usuario a la página de inicio de sesión
+                        window.location.href = '../login.html'; // Ajusta la ruta si es necesario
+                    }
+                </script>
+                <li>
+                    <a class="button-container">
+                        <button id="cerrar-sesion" onclick="logout()">Cerrar sesion</button>
+                        <!--BOTON PARA CERRAR SESION-->
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="search-container">
+        <span class="search-icon"><i class="fas fa-search"></i></span>
+        <!-- Icono de búsqueda de Font Awesome -->
+        <input type="text" id="search-bar" class="search-bar" placeholder="Buscar...">
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="container" id="card-container"></div>
+
+    <!-- Pop-up y overlay -->
+    <div class="popup-overlay" id="popup-overlay"></div>
+    <div class="popup" id="popup">
+        <span class="close-popup" id="close-popup">&times;</span>
+        <div id="popup-content"></div>
+    </div>
+
+    <script>
+        async function fetchJSON() {
+            const response = await fetch('DataConvenios.json');
+            const data = await response.json();
+            return data;
+        }
+
+        function createCards(data) {
+            const container = document.getElementById('card-container');
+            container.innerHTML = ''; // Limpiar contenedor antes de agregar nuevas tarjetas
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+
+                // Crear el atributo Props combinando datos relevantes
+                const Props = `
+                    ${item.country}
+                    ${item.institution}
+                    ${item.agreementType}
+                    ${item.validity}
+                    ${item.state}
+                    ${item.languages}
+                    ${item.Props}
+                    ${item.subscriptionYear}
+                `.toLowerCase(); // Convertir todo a minúsculas para facilitar la búsqueda
+
+                card.setAttribute('Props', Props);
+
+                const content = document.createElement('div');
+                content.className = 'card-content';
+
+                const title = document.createElement('h2');
+                title.className = 'card-title';
+                title.innerHTML = `<img src="flags/${item.country}.png" alt="${item.country} flag" class="flag">${item.institution}`;
+                content.appendChild(title);
+
+                const description = document.createElement('p');
+                description.className = 'card-description';
+                description.innerHTML = `
+                <strong>Country:</strong> ${item.country}<br>
+                <strong>Agreement Type:</strong> ${item.agreementType}<br>
+                <strong>Validity:</strong> ${item.validity}<br>
+                <strong>State:</strong> ${item.state}<br>
+                <strong>Languages:</strong> ${item.languages}<br>
+                <strong>Subscription Year:</strong> ${item.subscriptionYear}
+            `;
+                content.appendChild(description);
+
+                const links = document.createElement('div');
+                links.className = 'card-links';
+
+                if (item.dreLink) {
+                    const dreLink = document.createElement('a');
+                    dreLink.href = item.dreLink;
+                    dreLink.textContent = 'DRE Link';
+                    dreLink.target = '_blank';
+                    links.appendChild(dreLink);
+                    links.appendChild(document.createElement('br'));
+                }
+
+                if (item.agreementLink) {
+                    const agreementLink = document.createElement('a');
+                    agreementLink.href = item.agreementLink;
+                    agreementLink.textContent = 'Agreement Link';
+                    agreementLink.target = '_blank';
+                    links.appendChild(agreementLink);
+                    links.appendChild(document.createElement('br'));
+                }
+
+                if (item.internationalLink) {
+                    const internationalLink = document.createElement('a');
+                    internationalLink.href = item.internationalLink;
+                    internationalLink.textContent = 'International Link';
+                    internationalLink.target = '_blank';
+                    links.appendChild(internationalLink);
+                    links.appendChild(document.createElement('br'));
+                }
+
+                content.appendChild(links);
+                card.appendChild(content);
+                container.appendChild(card);
+
+                // Agregar event listener para mostrar el pop-up
+                card.addEventListener('click', () => showPopup(Props));
+            });
+        }
+
+        function normalizeString(str) {
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+        }
+
+        function applyFilters(filters) {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const Props = normalizeString(card.getAttribute('Props'));
+                const isVisible = filters.every(filter => Props.includes(normalizeString(filter)));
+                card.style.display = isVisible ? 'block' : 'none';
+            });
+        }
+
+
+        function removeFilter(filter, filters) {
+            const index = filters.indexOf(filter);
+            if (index !== -1) {
+                filters.splice(index, 1);
+                applyFilters(filters);
+            }
+        }
+
+        function addFilter(filter, filters) {
+            const normalizedFilter = normalizeString(filter);
+            if (!filters.includes(normalizedFilter)) {
+                filters.push(normalizedFilter);
+                const filterElement = document.createElement('div');
+                filterElement.className = 'filter';
+                filterElement.textContent = filter; // Mantiene la versión original para mostrar
+
+                const removeButton = document.createElement('span');
+                removeButton.className = 'remove-filter';
+                removeButton.innerHTML = '&times;';
+                removeButton.onclick = () => {
+                    removeFilter(normalizedFilter, filters);
+                    filterElement.remove();
+                };
+
+                filterElement.appendChild(removeButton);
+                document.getElementById('filters').appendChild(filterElement);
+                applyFilters(filters);
+            }
+        }
+
+
+        function showPopup(content) {
+            const popup = document.getElementById('popup');
+            const popupContent = document.getElementById('popup-content');
+            const overlay = document.getElementById('popup-overlay');
+
+            popupContent.textContent = content;
+            popup.style.display = 'block';
+            overlay.style.display = 'block';
+
+            overlay.addEventListener('click', hidePopup);
+        }
+
+        function hidePopup() {
+            const popup = document.getElementById('popup');
+            const overlay = document.getElementById('popup-overlay');
+
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+
+        async function main() {
+            const jsonData = await fetchJSON();
+            createCards(jsonData);
+
+            const filters = [];
+            const searchBar = document.getElementById('search-bar');
+            searchBar.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && searchBar.value) {
+                    addFilter(searchBar.value, filters);
+                    searchBar.value = '';
+                }
+            });
+
+            // Event listener para cerrar el pop-up
+            document.getElementById('close-popup').addEventListener('click', hidePopup);
+        }
+
+        main();
+    </script>
+</body>
+
+</html>

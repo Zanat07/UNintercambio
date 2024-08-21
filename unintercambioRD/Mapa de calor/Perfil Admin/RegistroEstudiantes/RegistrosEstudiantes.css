@@ -1,0 +1,259 @@
+div.form-container {
+    background-color: rgba(165, 215, 254, 0.356);
+    border-radius: 10px;
+    border: 1px solid rgba(3, 96, 168, 0.603);
+    width: 70%;
+    padding-right: 42px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+
+}
+
+#form-title {
+    margin-left: 42px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: arial, sans-serif;
+}
+
+#student-form {
+    margin-left: 42px;
+    margin-top: 20px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+    margin-right: 10px;
+}
+
+#student-form input {
+    border-radius: 20px;
+    text-indent: 10px;
+    font-size: 16px;
+    height: 42px;
+    width: 100%;
+    min-width: 200px;
+    overflow: hidden;
+    border: 2px solid rgba(0, 0, 0, 0.06);
+}
+
+#student-form input:focus-visible {
+    outline: 1px solid rgba(137, 196, 128, 0.603);
+}
+
+.custom-text-input {
+    display: inline-block;
+    position: relative;
+    font-size: 16px;
+    width: 100%;
+    height: 42px;
+}
+
+.custom-text-input input {
+    width: 250px;
+    height: 32px;
+    border-radius: 5px;
+    text-indent: 32px;
+
+}
+
+.custom-text-input .edit-container {
+    display: inline-block;
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    top: 5px;
+    left: auto;
+    right: 10px;
+}
+
+.custom-file-input {
+    display: inline-block;
+    position: relative;
+    font-size: 16px;
+    width: 100%;
+    height: 42px;
+}
+
+input#date {
+    text-indent: 5px;
+}
+
+input#grad-cert,
+input#mot-lett {
+    display: none;
+}
+
+.custom-file-upload {
+    cursor: pointer;
+}
+
+.custom-file-input {
+    border: 1px solid rgba(137, 196, 128, 0.603);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: white;
+    color: rgba(128, 128, 128, 0.719);
+    font-family: arial, sans-serif;
+}
+
+
+.upload-container {
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    top: 4px;
+    left: auto;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-container img {
+    display: inline-block;
+    opacity: 50%;
+}
+
+input[type="submit"] {
+    background-color: rgba(113, 133, 152, 1);
+    color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+footer {
+    color: black;
+    text-align: center;
+    padding: 20px 0;
+    /*si la pantalla es muy grande se puede utilizar 
+    position: abolute;
+    bottom: 0;
+    */
+}
+
+.barra {
+    background-color: gray;
+    height: 1px;
+    margin-bottom: 10px;
+}
+
+p {
+    text-align: center;
+    font-family: arial, sans-serif;
+}
+
+
+
+
+/* ------------------------Estilo para la tabla --------------------------------*/
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para las celdas del encabezado */
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    background-color: #3593f7;
+    color: #fff;
+}
+
+/* Estilo para las celdas de datos */
+td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+/* Estilo para las filas pares del cuerpo */
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilo para el contenedor del formulario */
+.container-pt-5 {
+    padding-top: 50px;
+}
+
+/* Estilo para el cuerpo del formulario */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Estilo para cada columna del formulario */
+.col-md-12 {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+
+div.form-container-pt-5 {
+    background-color: rgba(165, 215, 254, 0.356);
+    border-radius: 10px;
+    border: 1px solid rgba(3, 96, 168, 0.603);
+    width: 70%;
+    padding-right: 42px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+
+/* ------------------------Estilo para los botones --------------------------------*/
+
+
+
+/*ESTILOS DE LOS BOTONES AÑADIR, EDITAR Y ELIMINAR*/
+.button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.button.add {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.button.edit {
+    background-color: #2196f3;
+    color: #fff;
+}
+
+.button.delete {
+    background-color: #f44336;
+    color: #fff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+}

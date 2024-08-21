@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Titale</title>
+</head>
+<body>
+<div class="container pt-5">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1>Contactos</h1>
+    </div>
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">CEDULA</th>
+          <th scope="col">NOMBRE</th>
+          <th scope="col">EDAD</th>
+          <th scope="col">TELEFONO</th>
+          <th scope="col">CORREO</th>
+          <th scope="col">PAPA</th>
+          <th scope="col">SEMESTRE</th>
+          <th scope="col">PROGRAMA</th>
+          <th scope="col">PASAPORTE</th>
+        </tr>
+        </thead>
+        <tbody id='cuerpo'>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script>
+  const tabla= document.querySelector('#cuerpo');
+  const opciones={
+    method: 'POST'
+  }
+
+  fetch('papas.php',opciones)
+    .then(respuesta => respuesta.json())
+    .then(resultado =>{
+
+      resultado.forEach(elemento => {
+
+        tabla.innerHTML +=  `
+                            <tr>
+                              <th scope="row">${elemento.est_Cedula}</th>
+                              <td>${elemento.est_Nombre}</td>
+                              <td>${elemento.est_Edad}</td>
+                              <td>${elemento.est_Telefono}</td>
+                              <td>${elemento.est_Correo}</td>
+                              <td>${elemento.est_PAPA}</td>
+                              <td>${elemento.est_Semestre}</td>
+                              <td>${elemento.est_pro_SNIES}</td>
+                                 <td>${elemento.est_Pasaporte}</td>
+                            </tr>
+                  `
+      });
+    });
+</script>
+</body>
+</html>

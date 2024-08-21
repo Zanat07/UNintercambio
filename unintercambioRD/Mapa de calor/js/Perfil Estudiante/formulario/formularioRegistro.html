@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='formularioRegistro.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <div class="form-container">
+        <h1 id="form-title">Registro estudiante</h1>
+        <form id="student-form"> <!-- IMPORTANTE PONER EL ACTION -->
+            <div class="row">
+                <div class="column">
+                    <div class="custom-text-input">
+                        <span class="edit-container">
+                            <img class="manImg" src="../../assets/editIcon.svg"></img>
+                        </span>
+                        <input type="text" id="identification" placeholder="Cedula" required>
+                    </div><br><br>
+
+                    <div class="custom-text-input">
+                        <span class="edit-container">
+                            <img class="manImg" src="../../assets/editIcon.svg"></img>
+                        </span>
+                        <input type="text" id="names" placeholder="Nombres" required>
+                    </div><br><br>
+
+                    <div class="custom-text-input">
+                        <span class="edit-container">
+                            <img class="manImg" src="../../assets/editIcon.svg"></img>
+                        </span>
+                        <input type="text" id="age" placeholder="Edad" required>
+                    </div><br><br>
+
+                    <div class="custom-text-input">
+                        <span class="edit-container">
+                            <img class="manImg" src="../../assets/editIcon.svg"></img>
+                        </span>
+                        <input type="text" id="cel-number" placeholder="Telefono" required>
+                    </div><br><br>
+
+                    <div class="custom-text-input">
+                        <span class="edit-container">
+                            <img class="manImg" src="../../assets/editIcon.svg"></img>
+                        </span>
+                        <input type="email" id="email" placeholder="Correo electronico" required>
+                    </div><br><br>
+
+                    <div class="custom-text-input">
+                        <span class="edit-container">
+                            <img class="manImg" src="../../assets/editIcon.svg"></img>
+                        </span>
+                        <input type="number" id="papa" placeholder="PAPA" required>
+                    </div><br><br>
+
+                    <div class="custom-text-input">
+                        <span class="edit-container">
+                            <img class="manImg" src="../../assets/editIcon.svg"></img>
+                        </span>
+                        <input type="number" id="semestre" placeholder="Semestre" required>
+                    </div><br><br>
+
+                </div>
+                <div class="column">
+                    <div class="custom-text-input">
+                        <span class="edit-container">
+                            <img class="manImg" src="../../assets/editIcon.svg"></img>
+                        </span>
+                        <input type="text" id="program" placeholder="Programa" required>
+                    </div><br><br>
+
+                    <div class="custom-text-input">
+                        <span class="edit-container">
+                            <img class="manImg" src="../../assets/editIcon.svg"></img>
+                        </span>
+                        <input type="text" id="passport" placeholder="Pasaporte" required>
+                    </div><br><br>
+
+                    <div class="custom-text-input">
+                        <span class="edit-container">
+                            <img class="manImg" src="../../assets/editIcon.svg"></img>
+                        </span>
+                        <input type="text" id="call-code" placeholder="Codigo convocatoria" required>
+                    </div><br><br>
+
+                    <input type="date" id="date" placeholder="Fecha" required><br><br>
+
+                    <div class="custom-file-input">
+                        <label id="file-upload" class="custom-file-upload">
+                            <span class="upload-container">
+                                <img class="manImg" src="../../assets/attach.svg">
+                            </span>
+                            Certificado de notas
+                            <input type="file" id="grad-cert" placeholder="Certificado de notas">
+                        </label>
+                    </div><br>
+
+                    <div class="custom-file-input">
+                        <label id="file-upload" class="custom-file-upload">
+                            <span class="upload-container">
+                                <img class="manImg" src="../../assets/attach.svg">
+                            </span>
+                            Carta de motivacion
+                            <input type="file" id="mot-lett" placeholder="Carta de motivacion">
+                        </label>
+                    </div><br>
+                    <div class="custom-text-input">
+                        <span class="edit-container">
+                            <img class="manImg" src="../../assets/register.svg"></img>
+                        </span>
+                        <input type="submit" value="Registrarse">
+                    </div><br><br>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

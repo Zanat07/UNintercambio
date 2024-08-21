@@ -1,0 +1,16 @@
+footer {
+    color: black;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.barra {
+    background-color: gray;
+    height: 1px;
+    margin-bottom: 10px;
+}
+
+p {
+    text-align: center;
+    font-family: arial, sans-serif;
+}
